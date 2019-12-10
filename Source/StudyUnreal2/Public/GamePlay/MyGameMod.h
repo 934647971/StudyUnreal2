@@ -13,5 +13,7 @@ UCLASS()
 class STUDYUNREAL2_API AMyGameMod : public AGameModeBase
 {
 	GENERATED_BODY()
+public:
+	AMyGameMod();
 	
 };

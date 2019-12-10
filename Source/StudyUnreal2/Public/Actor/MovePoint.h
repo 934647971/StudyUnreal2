@@ -22,5 +22,10 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+	
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Component)
+		class UDecalComponent*	Decal;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Component)
+		class UBoxComponent* Box;
 };
