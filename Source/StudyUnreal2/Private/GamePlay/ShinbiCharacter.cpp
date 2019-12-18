@@ -8,6 +8,7 @@
 #include "Engine/Blueprint.h"
 #include "Engine/SkeletalMesh.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "Components/CapsuleComponent.h"
 
 AShinbiCharacter::AShinbiCharacter()
 {
@@ -15,7 +16,6 @@ AShinbiCharacter::AShinbiCharacter()
 	bUseControllerRotationYaw = false;
 	bUseControllerRotationRoll = false;
 	GetCharacterMovement()->bOrientRotationToMovement = true;
-
 
 
 	static ConstructorHelpers::FObjectFinder<USkeletalMesh> SkeletalMesh(TEXT("SkeletalMesh'/Game/MyGame/Character/SK_Shinbi.SK_Shinbi'"));
@@ -41,5 +41,6 @@ AShinbiCharacter::AShinbiCharacter()
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("CameraComponent"));
 	Camera->SetupAttachment(SpringArm);
 	Camera->bUsePawnControlRotation = false;
+	GetCapsuleComponent()->SetGenerateOverlapEvents(true);
 
 }

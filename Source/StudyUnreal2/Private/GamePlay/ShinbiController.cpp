@@ -44,6 +44,7 @@ void AShinbiController::SetupInputComponent()
 
 void AShinbiController::BeginPlay()
 {
+	Super::BeginPlay();
 	Character = Cast<AShinbiCharacter>(GetPawn());
 }
 
@@ -137,10 +138,7 @@ void AShinbiController::MoveToPoint()
 		MovePoint =Cast<AMovePoint>(GetWorld()->SpawnActor(AMovePoint::StaticClass(),&Hit.Location));
 		if (Character)
 		{	
-			UE_LOG(LogTemp, Log, TEXT("Point: %s"), &Hit.Location);
-			GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Yellow, TEXT("AAAA"));
 			UAIBlueprintHelperLibrary::SimpleMoveToLocation(this, Hit.ImpactPoint);
-			GEngine->AddOnScreenDebugMessage(-1, 5, FColor::Yellow, TEXT("CCCC"));
 		}
 	}
 }
